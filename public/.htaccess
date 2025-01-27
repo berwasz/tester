@@ -10,6 +10,10 @@ ErrorDocument 404 /
 
 RewriteEngine On
 
+# Handle Authorization Header
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
 RewriteRule ^app\.php(/(.*)|$) %{ENV:BASE}/$2 [R=301,L]
 
