@@ -15,6 +15,14 @@ class TekstyCrudController extends AbstractCrudController
         return Teksty::class;
     }
 
+    public function createEntity(string $entityFqcn)
+    {
+        $tekst = new Teksty();
+        // $product->createdBy($this->getUser());
+
+        return $tekst;
+    }
+
     
     public function configureFields(string $pageName): iterable
     {
